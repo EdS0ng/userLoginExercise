@@ -1,0 +1,38 @@
+extends ./layout2
+
+block css
+  link(href='../css/profile.css', rel='stylesheet')
+
+
+block content
+  #editModal.modal.fade(role="dialog")
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(data-dismiss="modal") &times; 
+            h4.modal-title Edit Profile
+          .modal-body
+            .form-group
+              label(for="#newEmail") Email:
+              input.form-control#newEmail(type="email" placeholder="Edit Email")
+            .form-group
+              label(for="#newAbout") About Me:
+              textarea.form-control#newAbout(placeholder="New Message")
+          .modal-footer
+            button.btn.btn-default.submit(data-dismiss="modal") Submit Edit
+  .container
+    .jumbotron
+      h1 User Profile 
+    .row
+      span.col-sm-3 UserName: 
+      .uName.col-sm-9
+    .row
+      span.col-sm-3 Email:
+      .email.col-sm-9= email
+    .row
+      span.col-sm-12 About Me:
+    .about= about
+    button.btn.btn-default.edit(data-toggle="modal" data-target="#editModal") Edit Profile
+
+block js
+  script(src='../js/profile.js')
